@@ -21,6 +21,7 @@ class Channel extends Model {
 		return $this->belongsToMany('App\Post');
 	}
 
+
 	public function parent()
 	{
 		return $this->belongsTo('App\Channel');
@@ -29,5 +30,11 @@ class Channel extends Model {
 	public function children(){
 		return $this->hasMany('App\Channel', 'parent_id');
 	}
+
+
+	public function topLevel(){
+		return $this->where('parent_id', NULL);
+	}
+
 
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Channel;
 
 class AdminChannelController extends Controller
 {
@@ -16,7 +17,7 @@ class AdminChannelController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.channels.index');
     }
 
     /**
@@ -26,7 +27,13 @@ class AdminChannelController extends Controller
      */
     public function create()
     {
-        //
+        // build list of options for parent channel
+        $options = [null => "Select"];
+        $options2 = (new Channel)->topLevel()->lists('shorthand', 'id')->toArray();
+        $options = array_merge($options, $options2);
+        
+        $selected = null;
+        return view('admin.channels.create')->with(['options'=>$options, 'selected'=>$selected]);
     }
 
     /**
