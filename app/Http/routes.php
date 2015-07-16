@@ -14,3 +14,36 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('home', function(){
+	if (Auth::check()) {
+		echo "User " . Auth::user()->name . " is Signed in"; 
+	}else{
+		echo "No user is signed in";
+	}
+});
+
+
+
+/*
+| --------------------------------------------------------------------------
+| Authentication Routes:
+| --------------------------------------------------------------------------
+| 
+*/
+
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+
+
+/**
+ * Admin Routes
+ */
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::resource('blogs', 'AdminBlogController');
+    Route::resource('channels', 'AdminChannelController');
+});
