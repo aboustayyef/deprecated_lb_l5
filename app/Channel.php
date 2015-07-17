@@ -33,7 +33,7 @@ class Channel extends Model {
 
 
 	public function topLevel(){
-		return $this->where('parent_id', NULL);
+		return $this->where('parent_id', 0);
 	}
 
 

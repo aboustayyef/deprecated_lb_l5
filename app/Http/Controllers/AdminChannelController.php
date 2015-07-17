@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Channel;
-
+use Redirect;
 class AdminChannelController extends Controller
 {
     /**
@@ -28,12 +28,9 @@ class AdminChannelController extends Controller
     public function create()
     {
         // build list of options for parent channel
-        $options = [null => "Select"];
-        $options2 = (new Channel)->topLevel()->lists('shorthand', 'id')->toArray();
-        $options = array_merge($options, $options2);
-        
-        $selected = null;
-        return view('admin.channels.create')->with(['options'=>$options, 'selected'=>$selected]);
+        $options = $this->getOptions();
+
+        return view('admin.channels.create')->with(['options'=>$options]);
     }
 
     /**
@@ -44,7 +41,15 @@ class AdminChannelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newChannel = Channel::create([
+            'shorthand'=> $request->shorthand,
+            'description'=> $request->description,
+        ]);
+
+        $newChannel->parent()->associate($request->parent_id);
+        $newChannel->save();
+
+        return Redirect::Route('admin.channels.index')->withMessage('Success!');
     }
 
     /**
@@ -66,7 +71,11 @@ class AdminChannelController extends Controller
      */
     public function edit($id)
     {
-        //
+        // build list of options for parent channel
+        $options = $this->getOptions();
+
+        $channel = Channel::findOrFail($id);
+        return View('admin.channels.edit')->with(compact('channel'))->with(compact('options'));
     }
 
     /**
@@ -78,7 +87,12 @@ class AdminChannelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $channel = Channel::findOrFail($id);
+        $channel->shorthand = $request->shorthand;
+        $channel->description = $request->description;
+        $channel->parent()->associate($request->parent_id);
+        $channel->save();
+        return Redirect::Route('admin.channels.index')->withMessage('Success!');
     }
 
     /**
@@ -90,5 +104,12 @@ class AdminChannelController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getOptions(){
+        $options = [0 => "Select"];
+        $options2 = (new Channel)->topLevel()->lists('shorthand', 'id')->toArray();
+        $options = $options + $options2;
+        return $options;
     }
 }
