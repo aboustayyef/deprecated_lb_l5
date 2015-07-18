@@ -18,10 +18,12 @@ List of Blogs
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($blogs as $blog)
+		@foreach($blogs->all() as $blog)
+		<tr>
 			<td>{{$blog->shorthand}}</td>
 			<td>{{$blog->name}}</td>
-			<td><a href="{{route('admin.blogs.edit', ['blogs' => $blog->id])}}"></a></td>
+			<td> <a href="{{route('admin.blogs.show', ['blogs' => $blog->id])}}">[details]</a> <a href="{{route('admin.blogs.edit', ['blogs' => $blog->id])}}">[edit]</a></td>
+		</tr>
 		@endforeach
 	</tbody>
 </table>

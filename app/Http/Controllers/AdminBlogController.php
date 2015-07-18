@@ -7,6 +7,7 @@ use App\Http\Requests\AdminBlogsRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Blog;
+use Redirect;
 
 class AdminBlogController extends Controller
 {
@@ -39,7 +40,9 @@ class AdminBlogController extends Controller
      */
     public function store(AdminBlogsRequest $request)
     {
-        //
+        $blog = $request->All();
+        $success = Blog::Create($blog);
+        return Redirect::Route('admin.blogs.index')->withMessage('Success!');
     }
 
     /**
@@ -50,7 +53,8 @@ class AdminBlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $blog= Blog::findOrFail($id);
+        return View('admin.blogs.show')->with(compact('blog'));
     }
 
     /**
@@ -61,7 +65,8 @@ class AdminBlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog= Blog::findOrFail($id);
+        return View('admin.blogs.show')->with(compact('blog'));
     }
 
     /**
