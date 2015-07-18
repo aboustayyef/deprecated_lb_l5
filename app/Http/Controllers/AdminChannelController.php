@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\AdminChannelRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Channel;
@@ -39,11 +39,12 @@ class AdminChannelController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(AdminChannelRequest $request)
     {
         $newChannel = Channel::create([
             'shorthand'=> $request->shorthand,
             'description'=> $request->description,
+            'color'=>$request->color
         ]);
 
         $newChannel->parent()->associate($request->parent_id);
@@ -85,11 +86,12 @@ class AdminChannelController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminChannelRequest $request, $id)
     {
         $channel = Channel::findOrFail($id);
         $channel->shorthand = $request->shorthand;
         $channel->description = $request->description;
+        $channel->color = $request->color;
         $channel->parent()->associate($request->parent_id);
         $channel->save();
         return Redirect::Route('admin.channels.index')->withMessage('Success!');
@@ -103,7 +105,9 @@ class AdminChannelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $channel = Channel::findOrFail($id);
+        $channel->delete();
+        return Redirect::Route('admin.channels.index')->withMessage('Success!');
     }
 
     public function getOptions(){

@@ -15,6 +15,8 @@ class AdminChannelRequest extends Request
     {
         if (\Auth::guest()) {
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -26,7 +28,7 @@ class AdminChannelRequest extends Request
     public function rules()
     {
         return [
-            //
+            'shorthand' => 'required'
         ];
     }
 }

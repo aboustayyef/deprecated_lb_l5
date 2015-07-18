@@ -11,10 +11,11 @@ Channels
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<td>Shorthand</td>
-			<td>Description</td>
-			<td>Parent</td>
-			<td>tools</td>
+			<th>Shorthand</th>
+			<th>Description</th>
+			<th>color</th>
+			<th>Parent</th>
+			<th>tools</th>
 		</tr>
 	</thead>
 	
@@ -23,6 +24,7 @@ Channels
 			<tr>
 				<td>{{$channel->shorthand}}</td>
 				<td>{{$channel->description}}</td>
+				<td>{{$channel->color}}</td>
 				<td>
 					@if($channel->parent)
 						{{$channel->parent->shorthand}}
@@ -34,8 +36,7 @@ Channels
 			</tr>
 		@endforeach	
 	</tbody>
-	
-
 </table>
+	<a href="{{route('admin.channels.create')}}" class="btn btn-primary">Add New Channel</a>
 
 @stop

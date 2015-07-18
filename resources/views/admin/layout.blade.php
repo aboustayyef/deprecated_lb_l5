@@ -7,7 +7,11 @@
 </head>
 <body>
 	<div class="container">
+		@if(\Session::has('message'))
+			<h3>{{\Session::get('message')}}</h3>
+		@endif
 		@yield('content')
 	</div>
+	<script type="text/javascript" src="{{asset('js/vendor.js')}}"></script>
 </body>
 </html>

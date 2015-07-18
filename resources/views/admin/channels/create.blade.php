@@ -10,7 +10,7 @@ Create New Channel
 
 {!! Form::open(['method' => 'POST', 'route' => 'admin.channels.store', 'class' => 'form-horizontal']) !!}
 
-<?php $message = "Create New Channel" ?>
+<?php $message = "Create" ?>
 @include('admin.channels.form')
 
 {!! Form::close() !!}
