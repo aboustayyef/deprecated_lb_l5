@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\AdminBlogsRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Blog;
 
 class AdminBlogController extends Controller
 {
@@ -16,7 +17,8 @@ class AdminBlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return view('admin.blogs.index')->with('blogs',$blogs);
     }
 
     /**
@@ -26,7 +28,7 @@ class AdminBlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blogs.create');
     }
 
     /**
@@ -35,7 +37,7 @@ class AdminBlogController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(AdminBlogsRequest $request)
     {
         //
     }
@@ -69,7 +71,7 @@ class AdminBlogController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminBlogsRequest $request, $id)
     {
         //
     }
