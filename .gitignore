@@ -4,3 +4,4 @@ Homestead.yaml
 .env
 
 resources/assets/bower/
+public/img/thumbs/originals

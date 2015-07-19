@@ -41,6 +41,12 @@ class AdminBlogController extends Controller
     public function store(AdminBlogsRequest $request)
     {
         $blog = $request->All();
+
+        // if a thumbnail is uploaded send file to be processed (cropped, resized ..etc) using our custom handler
+        if ($request->hasFile('thumb')) {
+            $this->dispatchFrom('\App\Jobs\processUploadedThumbs', $request);
+        }
+
         $success = Blog::Create($blog);
         return Redirect::Route('admin.blogs.index')->withMessage('Success!');
     }
@@ -66,7 +72,7 @@ class AdminBlogController extends Controller
     public function edit($id)
     {
         $blog= Blog::findOrFail($id);
-        return View('admin.blogs.show')->with(compact('blog'));
+        return View('admin.blogs.edit')->with(compact('blog'));
     }
 
     /**
@@ -78,7 +84,15 @@ class AdminBlogController extends Controller
      */
     public function update(AdminBlogsRequest $request, $id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+
+        // if a thumbnail is uploaded send file to be processed (cropped, resized ..etc) using our custom handler
+        if ($request->hasFile('thumb')) {
+            $this->dispatchFrom('\App\Jobs\processUploadedThumbs', $request);
+        }
+        
+        $blog->update($request->All());
+        return Redirect::Route('admin.blogs.index')->withMessage('Success!');
     }
 
     /**

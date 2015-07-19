@@ -1,17 +1,7 @@
-@extends('admin.layout')
-
-@section('title')
-Add New Blog
-@stop
-
-@section('content')
-<h1>Add New Blog</h1>
-<hr>
-
-{!! Form::open(['method' => 'POST', 'route' => 'admin.blogs.store', 'class' => 'form-horizontal', 'files'=>true]) !!}
-
-	<h3>General</h3>
+<h3>General</h3>
 	<hr>
+
+	@include('admin.blogs.thumb')
 
 	{{-- Shorthand --}}
     <div class="form-group">
@@ -97,8 +87,3 @@ Add New Blog
 	    	<small class="text-danger">{{ $errors->first('author_email') }}</small>
 		</div>
 	</div>
-
-{!! Form::submit("Add", ['class' => 'btn btn-primary pull-right']) !!}
-
-{!! Form::close() !!}
-@stop

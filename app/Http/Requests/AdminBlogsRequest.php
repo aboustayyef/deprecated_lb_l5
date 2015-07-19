@@ -28,6 +28,7 @@ class AdminBlogsRequest extends Request
     public function rules()
     {
         return [
+            'thumb'             =>  'mimes:jpeg,png',
             'shorthand'         =>  'required',
             'name'              =>  'required',
             'url'               =>  'required|url',
