@@ -10,7 +10,7 @@
 					</div>				
 					<div class="col-sm-8">
 						{!! Form::file('thumb') !!}
-						<p class="help-block">To replace the blog's thumbnail image, upload a new file</p>
+						<p class="help-block">To replace the existing thumbnail, upload a new file</p>
 						<small class="text-danger">{{ $errors->first('thumb') }}</small>
 					</div>	
 				</div>

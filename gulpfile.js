@@ -18,4 +18,7 @@ elixir(function(mix) {
 		'../../assets/bower/jquery/dist/jquery.js',
 		'../../assets/bower/bootstrap-sass-official/assets/javascripts/bootstrap.js'
     ], 'public/js/vendor.js');
+    mix.scripts([
+		'../../assets/javascript/admin/auto_fill_blog_info.js'
+    ], 'public/js/admin.js');
 });

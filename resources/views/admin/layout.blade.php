@@ -13,5 +13,6 @@
 		@yield('content')
 	</div>
 	<script type="text/javascript" src="{{asset('js/vendor.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/admin.js')}}"></script>
 </body>
 </html>

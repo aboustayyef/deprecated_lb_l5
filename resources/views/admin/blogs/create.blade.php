@@ -15,4 +15,11 @@ Add New Blog
 {!! Form::submit("Add", ['class' => 'btn btn-primary pull-right']) !!}
 
 {!! Form::close() !!}
+
+
+{{-- Ajax AutoFill form --}}
+<form method="POST" action="{{route('ajax.info')}}">
+	<input type="submit" id="autofill" disabled="disabled" class="btn btn-default" value="Autofill from Available data"></button>	
+</form>
+
 @stop

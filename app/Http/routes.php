@@ -47,3 +47,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('blogs', 'AdminBlogController');
     Route::resource('channels', 'AdminChannelController');
 });
+
+Route::post('ajaxInfoGetter', 
+	[ 'as' =>'ajax.info', 'uses'=>'AjaxDataController@getInfo'] );
