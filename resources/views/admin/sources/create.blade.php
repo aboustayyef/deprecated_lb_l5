@@ -19,7 +19,7 @@ Add New Source
 
 {{-- Ajax AutoFill form --}}
 <form method="POST" action="{{route('ajax.info')}}">
-	<input type="submit" id="autofill" disabled="disabled" class="btn btn-default" value="Autofill from Available data"></button>	
+	<input type="submit" id="autofill" disabled="disabled" class="btn btn-default" value="Autofill from Available data">
 </form>
 
 @stop
