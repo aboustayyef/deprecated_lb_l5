@@ -1,7 +1,7 @@
 <h3>General</h3>
 	<hr>
 
-	@include('admin.blogs.thumb')
+	@include('admin.sources.thumb')
 
 	{{-- Shorthand --}}
     <div class="form-group">

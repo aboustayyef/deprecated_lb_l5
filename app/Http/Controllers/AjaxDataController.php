@@ -13,7 +13,7 @@ class AjaxDataController extends Controller
 {
     function getInfo(Request $request){
 
-    	$bloginfo = new BlogInfoScraper($request->url, $request->author_twitter);
-    	return response()->json($bloginfo);
+    	$sourceinfo = new SourceInfoScraper($request->url, $request->author_twitter);
+    	return response()->json($sourceinfo);
     }
 }

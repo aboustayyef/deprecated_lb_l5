@@ -9,7 +9,7 @@ namespace App\Utilities;
 * Rss: The RSS feed of the blog
 */
 
-class BlogInfoScraper extends Scraper 
+class SourceInfoScraper extends Scraper 
 { 
 
     // from parent: Crawler $crawler object;

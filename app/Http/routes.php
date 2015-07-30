@@ -44,7 +44,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
  */
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::resource('blogs', 'AdminBlogController');
+    Route::resource('sources', 'AdminSourceController');
     Route::resource('channels', 'AdminChannelController');
 });
 

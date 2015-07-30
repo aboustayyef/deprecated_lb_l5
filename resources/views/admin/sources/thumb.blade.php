@@ -2,11 +2,11 @@
 	<div class="col-sm-3">
 		<strong>Thumb:</strong>
 	</div>
-@if(isset($blog))
-	@if(isset($blog->shorthand))
-		@if(file_exists(public_path().'/img/thumbs/' . $blog->shorthand . '.jpg'))
+@if(isset($source))
+	@if(isset($source->shorthand))
+		@if(file_exists(public_path().'/img/thumbs/' . $source->shorthand . '.jpg'))
 					<div class="col-sm-1">
-						<img src="{{asset('/img/thumbs/' . $blog->shorthand . '.jpg')}}" style="max-width:100%; height:auto">
+						<img src="{{asset('/img/thumbs/' . $source->shorthand . '.jpg')}}" style="max-width:100%; height:auto">
 					</div>				
 					<div class="col-sm-8">
 						{!! Form::file('thumb') !!}
