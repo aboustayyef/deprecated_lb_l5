@@ -21,6 +21,19 @@
 		</div>
 	</div>
 
+	{{-- Channel --}}
+	<div class="form-group">
+	    {!! Form::label('channel', 'Channel', ['class' => 'col-sm-3 control-label']) !!}
+	    <div class="col-sm-9">
+	    	@if(isset($source))
+	    	<?php $test = $source->channels->lists('id')->all(); ?>
+	    		{!! Form::select('channels[]',  \App\Channel::lists('shorthand', 'id'), $test, ['class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+	    	@else
+	    		{!! Form::select('channels[]',  \App\Channel::lists('shorthand', 'id'), null, ['class' => 'form-control', 'required' => 'required', 'multiple']) !!}
+	    	@endif
+	    	<small class="text-danger">{{ $errors->first('channel') }}</small>
+		</div>
+	</div>
 	{{-- Description --}}
 	<div class="form-group">
 	    {!! Form::label('description', 'Description', ['class' => 'col-sm-3 control-label']) !!}

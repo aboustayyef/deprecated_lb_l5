@@ -11,9 +11,9 @@ class Channel extends Model {
 	protected $fillable = array('shorthand', 'description');
 	protected $visible = array('shorthand', 'description');
 
-	public function blogs()
+	public function sources()
 	{
-		return $this->belongsToMany('App\Blog');
+		return $this->belongsToMany('App\Source');
 	}
 
 	public function posts()

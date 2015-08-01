@@ -41,7 +41,6 @@ class AdminSourceController extends Controller
     public function store(AdminSourcesRequest $request)
     {
         $source = $request->All();
-
         // if a thumbnail is uploaded send file to be processed (cropped, resized ..etc), else, use twitter's thumb.
         if ($request->hasFile('thumb')) {
             $this->dispatchFrom('\App\Jobs\processUploadedThumbs', $request);
@@ -49,7 +48,13 @@ class AdminSourceController extends Controller
             $this->dispatchFrom('\App\Jobs\processTwitterThumbs', $request);
         }
 
-        $success = Source::Create($source);
+        $result = Source::Create($source);
+
+        // now associate channels
+
+        $channels = $request->channels;
+        $result->channels()->sync($channels);
+
         return Redirect::Route('admin.sources.index')->withMessage('Success!');
     }
 
@@ -94,7 +99,14 @@ class AdminSourceController extends Controller
         }
         
         $source->update($request->All());
+
+        // now update channels
+
+        $channels = $request->channels;
+        $source->channels()->sync($channels);
+
         return Redirect::Route('admin.sources.index')->withMessage('Success!');
+
     }
 
     /**

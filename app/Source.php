@@ -18,7 +18,19 @@ class Source extends Model {
 
 	public function channels()
 	{
-		return $this->hasMany('App\Channel');
+		return $this->belongsToMany('App\Channel');
+	}
+
+
+	// not tested yet;
+	public function channelsList()
+	{
+		$channelsList = [];
+		$channels = $this->channels;
+		foreach ($channels as $channel) {
+			$channelList[$channel->id] = $channel->shorthand;
+		}
+		return $channelsList;
 	}
 
 }
