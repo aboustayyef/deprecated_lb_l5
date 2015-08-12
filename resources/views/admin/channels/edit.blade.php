@@ -13,7 +13,7 @@ Edit Channel [$channel->shorthand]
 
 {!! Form::model($channel, ['route' => ['admin.channels.update', $channel->id], 'method' => 'PUT']) !!}
 
-<?php $message = "Edit" ?>
+<?php $message = "Submit" ?>
 
 @include('admin.channels.form')
 

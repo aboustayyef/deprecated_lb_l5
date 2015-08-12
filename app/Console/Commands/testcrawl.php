@@ -42,16 +42,10 @@ class testcrawl extends Command
         $this->info('test crawling');
         $crawler = new Crawler;
         $crawler->addHtmlContent(Cache::get('annaharHtmlContent'));
-        $links = $crawler->filter('#site > section.page > section.rightColumn.categoryPage.science > section > ul > li');
+        $links = $crawler->filterXPath('//*[@id="site"]/section[2]/section[2]/section/ul/li[*]/article/h2/a');
         foreach ($links as $key => $link) {
-            $as = new Crawler($link);
-            foreach ($as->filter('a') as $key => $a) {
-                if (!empty($a->nodeValue)) {
-                    var_dump($a->getAttribute('href'));
-                }
-                
-            };
-            
+            var_dump($link->getAttribute('href')); 
+            var_dump($link->nodeValue);           
         }
     }
 }
