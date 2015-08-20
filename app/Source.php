@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\PostGetters\PostLists\RssListGetter;
+use App\PostGetters\PostLists\ListChooser;
+use App\PostGetters\PostDetails\DetailsChooser;
 
 class Source extends Model {
 
@@ -21,6 +24,16 @@ class Source extends Model {
 		return $this->belongsToMany('App\Channel');
 	}
 
+	public function crawlLatestPosts(){
+		
+		$posts = new ListChooser($this->url, $this->rss_feed);
+		return $posts->getList();
+	}
+
+	public function crawlPostDetails($link){
+		$details = new DetailsChooser($link, $this->rss_feed, $verbose = true);
+		return $details->getDetails();
+	}
 
 	// not tested yet;
 	public function channelsList()
