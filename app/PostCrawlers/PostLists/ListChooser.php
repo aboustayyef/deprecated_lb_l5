@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\PostGetters\PostLists;
+namespace App\PostCrawlers\PostLists;
 
 use SimplePie;
 use Carbon\Carbon;
@@ -12,19 +12,20 @@ use Symfony\Component\DomCrawler\Crawler;
 * 
 * If There's an RSS feed, instantiate a simplePie $feed object and construct an RssListGetter with it
 *
-* Otherwise, instantiate a DomCrawler $crawler object and then select which web getter to use based on URL
+* Otherwise, instantiate a DomCrawler $crawler object and then create web getter using a magical class
 * 
 */
 
 class ListChooser
 {
 
-	protected $url, $rss, $crawler, $feed;
+	protected $url, $rss, $media_parent, $crawler, $feed;
 
-	public function __construct($url = null, $rss = null){
+	public function __construct($url = null, $rss = null, $media_parent = null){
 		
 		$this->url = $url;
 		$this->rss = $rss;
+		$this->media_parent = $media_parent;
 
 		if (!isset($rss) || $rss == "") {
 			$this->crawler = new Crawler;
@@ -48,11 +49,11 @@ class ListChooser
 			return $getter->getList();
 		}
 
-		// Now Lebanon
-		if (starts_with($this->url, 'https://now.mmedia.me')) {
-			$getter = new NowLebanonListGetter($this->url, $this->crawler);
-			return $getter->getList();
-		}
+		// Otherwise
+		
+		$getterClassName = 'App\PostCrawlers\PostLists\\' . $this->media_parent . 'ListGetter'; // example, NowLebanonListGetter, which implements now lebanon's way of getting lists;
+		$getter = new $getterClassName($this->url, $this->crawler);
+		return $getter->getList();
 	
 	}
 	

@@ -1,9 +1,9 @@
 <?php 
 
-namespace App\PostGetters\PostLists;
+namespace App\PostCrawlers\PostLists;
 
 use SimplePie;
-use App\PostGetters\PostDetails\NowLebanonDetailsGetter;
+use App\PostCrawlers\PostDetails\NowLebanonDetailsGetter;
 /**
 * 
 */

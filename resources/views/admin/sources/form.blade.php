@@ -73,6 +73,16 @@
 		</div>
 	</div>
 
+	{{-- Media Parent --}}
+
+	<div class="form-group">
+	    {!! Form::label('media_parent', 'Media Parent (If Not a Blog)', ['class' => 'col-sm-3 control-label']) !!}
+		<div class="col-sm-9">
+	    	{!! Form::text('media_parent', null, ['class' => 'form-control', 'placeholder'=>'OneWordOnly, Camel Case']) !!}
+	    	<small class="text-danger">{{ $errors->first('media_parent') }}</small>
+		</div>
+	</div>
+
 	<h3>Author Information</h3><hr>
 	{{-- author --}}
 	<div class="form-group">

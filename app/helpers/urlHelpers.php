@@ -59,4 +59,25 @@ function cleanupUrl($url){
 	return $url;
 }
 
+/**
+ * Encodes urls with arabic parts at the end
+ * @param  string $url [url input]
+ * @return string      [encoded url output]
+ */
+
+function arabicUrlEncode($url){
+
+	// only works if url contains arabic strings
+	if (preg_match("~\p{Arabic}+~iu", $url)) {
+		$parts = explode('/', $url);
+		$arabicPart = array_pop($parts); // last item in the array
+		$arabicPart = urlencode($arabicPart);
+		$parts[] = $arabicPart;
+		$url = implode('/', $parts);
+	}
+
+	return $url;
+
+}
+
 ?>

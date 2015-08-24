@@ -1,12 +1,13 @@
 <?php 
 
-Namespace App\PostGetters\PostDetails;
+Namespace App\PostCrawlers\PostDetails;
 
 use Carbon\Carbon;
 use Symfony\Component\DomCrawler\Crawler;
+use Aboustayyef\ImageExtractor;
 
 
-class NowLebanonDetailsGetter extends _DetailsGetter
+class NowLebanonDetailsGetter extends _MediaDetailsGetter
 {
 	
 	function getTitle(){
@@ -36,12 +37,6 @@ class NowLebanonDetailsGetter extends _DetailsGetter
 		}
 		return $content;
 	}
-
-
-	function getImage(){
-		return 'http://test.image/location.jpg';
-	}
-
 
 }
 

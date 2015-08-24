@@ -1,16 +1,16 @@
 <?php 
 
-Namespace App\PostGetters\PostDetails;
+Namespace App\PostCrawlers\PostDetails;
 
 use Carbon\Carbon;
 use Symfony\Component\DomCrawler\Crawler;
 use Aboustayyef\ImageExtractor;
 
-class RssDetailsGetter
+class RssDetailsGetter 
 {
 	protected $url, $feed, $verbose;
 	public function __construct($url, $feed, $verbose=false){
-		$this->url = $url;
+		$this->url = arabicUrlencode($url);
 		$this->feed = $feed;
 		$this->verbose = $verbose;
 	}
@@ -42,6 +42,7 @@ class RssDetailsGetter
 				}
 
 				return [
+					'url'		=> $this->url,
 					'title'		=> $this->getTitle($link),
 					'date'		=> $this->getDate($link),
 					'content'	=> $this->getContent($link),

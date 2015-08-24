@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\PostGetters\PostLists;
+namespace App\PostCrawlers\PostLists;
 
 use Carbon\Carbon;
 
