@@ -34,6 +34,7 @@
 	    	<small class="text-danger">{{ $errors->first('channel') }}</small>
 		</div>
 	</div>
+
 	{{-- Description --}}
 	<div class="form-group">
 	    {!! Form::label('description', 'Description', ['class' => 'col-sm-3 control-label']) !!}
@@ -64,9 +65,8 @@
 	</div>
 
 	{{-- RSS Feed --}}
-
 	<div class="form-group">
-	    {!! Form::label('rss_feed', 'RSS Feed', ['class' => 'col-sm-3 control-label']) !!}
+	    {!! Form::label('rss_feed', 'RSS Feed (optional)', ['class' => 'col-sm-3 control-label']) !!}
 		<div class="col-sm-9">
 	    	{!! Form::text('rss_feed', null, ['class' => 'form-control']) !!}
 	    	<small class="text-danger">{{ $errors->first('rss_feed') }}</small>
@@ -74,9 +74,8 @@
 	</div>
 
 	{{-- Media Parent --}}
-
 	<div class="form-group">
-	    {!! Form::label('media_parent', 'Media Parent (If Not a Blog)', ['class' => 'col-sm-3 control-label']) !!}
+	    {!! Form::label('media_parent', 'Media Parent (If No RSS)', ['class' => 'col-sm-3 control-label']) !!}
 		<div class="col-sm-9">
 	    	{!! Form::text('media_parent', null, ['class' => 'form-control', 'placeholder'=>'OneWordOnly, Camel Case']) !!}
 	    	<small class="text-danger">{{ $errors->first('media_parent') }}</small>

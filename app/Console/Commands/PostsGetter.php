@@ -6,6 +6,9 @@ use Illuminate\Console\Command;
 use App\Source;
 use App\Post;
 use Exception;
+use App\PostCrawlers\PostLists\PostListGetter;
+use App\PostCrawlers\PostDetails\PostDetailsGetter;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class PostsGetter extends Command
 {
@@ -65,22 +68,47 @@ class PostsGetter extends Command
         $source = Source::where('shorthand', $source)->first();
 
         // get post links
+        $postLinks = (new PostListGetter($source))->getList();
         
-        $postLinks = $source->crawlLatestPosts();
-        
-        // get details for links
-
+        // get details for each link
         foreach ($postLinks as $key => $link) {
+
             $this->info('Getting details for link: ' . $link);
 
-            $details = $source->crawlPostDetails($link, $verbose = false);
+            $details = (new PostDetailsGetter($source, $link))->getDetails();
+
+            if (! $source->hasPublished($details['url'])) {
+                // save
+                // associate to channel
+                // queue image for processing
+                var_dump($details);
+
+                // isolate the image
+                $imageUrl = array_pop($details); // this removes the image from the array
+                
+                // save the post
+                $post = Post::create($details);
+                
+                // associate the post to a source
+                $post->source()->associate($source)->save();
+
+                // associate the post to channels
+                $post->channels()->sync($source->channels);
+
+                // deal with the image, if any;
+                if (!empty($imageUrl)) {
+                    (new \App\Jobs\processPostImage($post, $imageUrl))->handle();
+                }
+
+            } else {
+                $this->info('This post is already in the database');
+            }
 
             // if Post::has($details), skip
             // otherwise, 
             //  1- Post::store($details) (without image)
             //  2- Cache Image and Store in Image model, with post ID;
 
-            var_dump($details);
         }
     }
 

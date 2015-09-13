@@ -13,21 +13,20 @@ abstract class _MediaDetailsGetter
 	// common initialization logic
 	protected $url, $crawler, $verbose;
 	
-	public function __construct($url, $crawler, $verbose=false){
+	public function __construct($url, $crawler){
 		$this->url = $url;
 		$this->crawler = $crawler;
-		$this->verbose = $verbose;
 	}
 
 	// common functions
 
 	public function getDetails(){
 		return [
-					'url'		=> $this->url,
-					'title'		=> $this->getTitle(),
-					'date'		=> $this->getDate(),
-					'content'	=> $this->getContent(),
-					'image'		=> $this->getImage()
+					'url'				=> $this->url,
+					'title'				=> $this->getTitle(),
+					'publishing_date'	=> $this->getDate(),
+					'content'			=> $this->getContent(),
+					'image'				=> $this->getImage()
 				];
 	}
 

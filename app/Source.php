@@ -31,6 +31,12 @@ class Source extends Model {
 		return Source::where('shorthand', $shorthand )->count() > 0;
 	}
 
+	/*
+	Looks if this url was published before
+	 */
+	public function hasPublished($url){
+		return $this->posts()->where('url',$url)->get()->count() > 0;
+	}
 
 	// Crawling Functions
 

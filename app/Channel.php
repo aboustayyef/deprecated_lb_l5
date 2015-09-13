@@ -8,7 +8,7 @@ class Channel extends Model {
 
 	protected $table = 'channels';
 	public $timestamps = true;
-	protected $fillable = array('shorthand', 'description','color');
+	protected $fillable = array('shorthand', 'description','color', 'parent_id');
 	protected $visible = array('shorthand', 'description');
 
 	public function sources()

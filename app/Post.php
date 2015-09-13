@@ -8,14 +8,20 @@ class Post extends Model
 {
     //
 
-	public static function has($url){
+	protected $fillable = array('title', 'url', 'excerpt', 'content', 'publishing_date');
 
+	public function source(){
+		return $this->belongsTo('App\Source');
+	}
 
-		// Check to see if a post exists with the given url (watch http vs https);
-		// Post::where('url', $url )->count() > 0;
-		// test with glamroz / jed / 
+	public function channels()
+	{
+		return $this->belongsToMany('App\Channel');
+	}
 
-
+	public function images()
+	{
+		return $this->hasMany('App\Image');
 	}
 
 }
