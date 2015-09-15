@@ -92,13 +92,16 @@ class PostsGetter extends Command
                 // associate the post to a source
                 $post->source()->associate($source)->save();
 
-                // associate the post to channels
+                // associate the post to channel(s)
                 $post->channels()->sync($source->channels);
 
                 // deal with the image, if any;
                 if (!empty($imageUrl)) {
-                    (new \App\Jobs\processPostImage($post, $imageUrl))->handle();
+                    (new \App\ContentProcessors\ImageProcessors\MainProcessor($post, $imageUrl))->process();
                 }
+
+                // process content (reviews, excerpts)
+                // (new \App\ContentProcessors\Processor($post))->process();
 
             } else {
                 $this->info('This post is already in the database');
