@@ -12,12 +12,12 @@ class MainProcessor extends _Processor
 
     public function process(){
 
-    	// Save the Image
-    	(new StoreImage($this->post, $this->imageUrl))->process();
+    	// Find and Save the Image
+    	$imageExists = (new StoreImage($this->post))->process();
 
-    	// Cache it
-    	(new CacheImage($this->post, $this->imageUrl))->process();
-
+    	if ($imageExists) {
+    		(new CacheImage($this->post))->process();
+    	}
     }
 
 

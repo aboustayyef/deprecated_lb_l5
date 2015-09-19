@@ -29,7 +29,6 @@ class RssDetailsGetter
 					'title'				=> $this->getTitle($link),
 					'publishing_date'	=> $this->getDate($link),
 					'content'			=> $this->getContent($link),
-					'image'				=> $this->getImage($link)
 				];
 
 				// Todo: Get Details
@@ -49,12 +48,6 @@ class RssDetailsGetter
 
 	function getContent($link){
 		return $link->get_content();
-	}
-
-
-	function getImage(){
-		$imageExtractor = new ImageExtractor($this->url);
-		return $imageExtractor->get(400);
 	}
 
 }

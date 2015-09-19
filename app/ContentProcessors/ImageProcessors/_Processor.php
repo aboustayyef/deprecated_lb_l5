@@ -3,15 +3,16 @@
 namespace App\ContentProcessors\ImageProcessors;
 use App\Post;
 use App\Image;
-abstract class _Processor
+
+Abstract class _Processor
+
 {
 	
-	protected $post, $imageUrl;
+	protected $post;
     
-    public function __construct(Post $post, $imageUrl)
+    public function __construct(Post $post)
     {
         $this->post = $post;
-        $this->imageUrl = $imageUrl;
     }
 
     abstract function process();

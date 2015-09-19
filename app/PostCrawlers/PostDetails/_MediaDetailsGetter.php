@@ -26,13 +26,7 @@ abstract class _MediaDetailsGetter
 					'title'				=> $this->getTitle(),
 					'publishing_date'	=> $this->getDate(),
 					'content'			=> $this->getContent(),
-					'image'				=> $this->getImage()
 				];
-	}
-
-	function getImage(){
-		$imageExtractor = new ImageExtractor($this->url);
-		return $imageExtractor->get(400);
 	}
 
 	// functions that differ between media sources

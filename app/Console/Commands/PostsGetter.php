@@ -82,10 +82,7 @@ class PostsGetter extends Command
                 // associate to channel
                 // queue image for processing
                 var_dump($details);
-
-                // isolate the image
-                $imageUrl = array_pop($details); // this removes the image from the array
-                
+               
                 // save the post
                 $post = Post::create($details);
                 
@@ -95,17 +92,13 @@ class PostsGetter extends Command
                 // associate the post to channel(s)
                 $post->channels()->sync($source->channels);
 
-                // deal with the image, if any;
-                if (!empty($imageUrl)) {
-                    (new \App\ContentProcessors\ImageProcessors\MainProcessor($post, $imageUrl))->process();
+                // extract and process images (if any);
+                (new \App\ContentProcessors\ImageProcessors\MainProcessor($post))->process();
+                } 
+                else 
+                {
+                    $this->info('This post is already in the database');
                 }
-
-                // process content (reviews, excerpts)
-                // (new \App\ContentProcessors\Processor($post))->process();
-
-            } else {
-                $this->info('This post is already in the database');
-            }
 
             // if Post::has($details), skip
             // otherwise, 
