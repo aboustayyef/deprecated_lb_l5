@@ -43,6 +43,7 @@ class PostListGetter
 	    $feed->set_useragent('Lebanese Blogs/3.2 (+http://www.lebaneseblogs.com)');
 	    $feed->strip_htmltags(false);
 	    $feed->enable_cache(false);
+	    $feed->force_feed(true);
 	    $feed->init(); // Run SimplePie.
 	    $feed->handle_content_type(); // This makes sure that the content is sent to
 	    $getter = new RssListGetter($feed);

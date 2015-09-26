@@ -19,9 +19,9 @@ class Post extends Model
 		return $this->belongsToMany('App\Channel');
 	}
 
-	public function images()
+	public function image()
 	{
-		return $this->hasMany('App\Image');
+		return $this->hasOne('App\Image');
 	}
 
 }

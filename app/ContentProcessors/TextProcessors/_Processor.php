@@ -1,8 +1,7 @@
 <?php 
 
-namespace App\ContentProcessors\ImageProcessors;
+namespace App\ContentProcessors\TextProcessors;
 use App\Post;
-use App\Image;
 
 Abstract class _Processor
 
@@ -15,7 +14,7 @@ Abstract class _Processor
         $this->post = $post;
     }
 
-    abstract function process($imageResource = null, $imageUrl = null);
+    abstract function process();
 
 }
 

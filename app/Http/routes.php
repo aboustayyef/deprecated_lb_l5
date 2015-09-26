@@ -23,7 +23,9 @@ Route::get('home', function(){
 	}
 });
 
-
+Route::get('show/{image}', function($image){
+	return '<img src ="' . asset('img/post_images') .'/'. $image . '"></img>';
+});
 
 /*
 | --------------------------------------------------------------------------

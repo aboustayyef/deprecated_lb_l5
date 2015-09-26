@@ -50,6 +50,18 @@ class PostsGetter extends Command
             $this->getPostsFromSource($this->argument('shorthand'));            
         }
 
+        // else
+
+        $sources = Source::all();
+
+        foreach ($sources as $key => $source) {
+            try {
+                $this->getPostsFromSource($source->shorthand);
+            } catch (Exception $e) {
+                $this->error('There was a problem with source [ ' . $source->description . ' ]');
+            }
+        }
+
 
     }
 
@@ -81,8 +93,6 @@ class PostsGetter extends Command
                 // save
                 // associate to channel
                 // queue image for processing
-                var_dump($details);
-               
                 // save the post
                 $post = Post::create($details);
                 
@@ -94,6 +104,10 @@ class PostsGetter extends Command
 
                 // extract and process images (if any);
                 (new \App\ContentProcessors\ImageProcessors\MainProcessor($post))->process();
+
+                // process text
+                (new \App\ContentProcessors\TextProcessors\MainProcessor($post))->process();
+
                 } 
                 else 
                 {

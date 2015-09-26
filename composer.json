@@ -11,10 +11,13 @@
         "laravelcollective/html": "5.1.*",
         "kasp3r/link-preview": "dev-master",
         "simplepie/simplepie": "^1.3",
+        "evansims/socialworth": "*",
         "marc1706/fast-image-size": "1.*",
         "aboustayyef/image-extractor": "dev-master",
+        "aboustayyef/summarizer": "dev-master",
         "doctrine/dbal": "^2.5",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "barryvdh/laravel-debugbar": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

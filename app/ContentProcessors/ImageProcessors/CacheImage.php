@@ -7,10 +7,13 @@ use App\Image;
 class CacheImage extends _Processor
 {
 	
-	public function process(){
+	public function process($imageResource = null, $imageUrl = null){
 
-		// Caching logic
-        Echo 'Image Cached into ' . md5($this->post->images[0]->url) . '.jpg' . PHP_EOL ;   
+		$imageResource->resize(400, null, function ($constraint) {
+		    $constraint->aspectRatio();
+		});  
+
+		$imageResource->encode('jpg')->save('public/img/post_images/' . md5($this->post->image->url) . '.jpg');
 	}
 
 }

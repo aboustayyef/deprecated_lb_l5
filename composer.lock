@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "573c38ac84703e8aee7e525a0df6c664",
+    "hash": "0bf55d71db8bb499e61fe2876828c28c",
+    "content-hash": "41fea15fe1c1b5254b81f75e2fe852b2",
     "packages": [
         {
             "name": "aboustayyef/image-extractor",
@@ -49,6 +50,133 @@
                 "scraping"
             ],
             "time": "2015-08-23 09:27:32"
+        },
+        {
+            "name": "aboustayyef/summarizer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aboustayyef/TextSummarizer.git",
+                "reference": "43d893e444978baf69ab9090695a8c68369b9758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aboustayyef/TextSummarizer/zipball/43d893e444978baf69ab9090695a8c68369b9758",
+                "reference": "43d893e444978baf69ab9090695a8c68369b9758",
+                "shasum": ""
+            },
+            "require": {
+                "camspiers/porter-stemmer": "^1.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aboustayyef\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mustapha Hamoui",
+                    "email": "mustapha@hamoui.com"
+                }
+            ],
+            "description": "a utility class that summarizes text based on the flipboard method",
+            "keywords": [
+                "summarization",
+                "text"
+            ],
+            "time": "2015-09-20 14:17:20"
+        },
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c",
+                "reference": "23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0.17|5.1.*",
+                "maximebf/debugbar": "~1.10.2",
+                "php": ">=5.4.0",
+                "symfony/finder": "~2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2015-09-09 11:39:27"
+        },
+        {
+            "name": "camspiers/porter-stemmer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/camspiers/porter-stemmer.git",
+                "reference": "588088e9aaa6d81d711098cf60af2ef18b1a5798"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/camspiers/porter-stemmer/zipball/588088e9aaa6d81d711098cf60af2ef18b1a5798",
+                "reference": "588088e9aaa6d81d711098cf60af2ef18b1a5798",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Richard Heyes",
+                    "email": "support@rgraph.net"
+                }
+            ],
+            "description": "Porter Stemmer created by Richard Heyes",
+            "time": "2013-02-06 21:39:08"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -510,16 +638,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "628c2256b646ae2417d44e063bce8aec5199d48d"
+                "reference": "01dbcbc5cd0a913d751418e635434a18a2f2a75c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/628c2256b646ae2417d44e063bce8aec5199d48d",
-                "reference": "628c2256b646ae2417d44e063bce8aec5199d48d",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/01dbcbc5cd0a913d751418e635434a18a2f2a75c",
+                "reference": "01dbcbc5cd0a913d751418e635434a18a2f2a75c",
                 "shasum": ""
             },
             "require": {
@@ -577,7 +705,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-01-12 21:52:47"
+            "time": "2015-09-16 16:29:33"
         },
         {
             "name": "doctrine/inflector",
@@ -699,6 +827,60 @@
                 "parser"
             ],
             "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "evansims/socialworth",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/evansims/socialworth.git",
+                "reference": "349d20fc0871774b57bf1a21582c6edc6da66ae8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/evansims/socialworth/zipball/349d20fc0871774b57bf1a21582c6edc6da66ae8",
+                "reference": "349d20fc0871774b57bf1a21582c6edc6da66ae8",
+                "shasum": ""
+            },
+            "require": {
+                "lib-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Evansims\\Socialworth": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Sims",
+                    "homepage": "http://evansims.com"
+                }
+            ],
+            "description": "A simple PHP library for determining the popularity of a URL across social networks.",
+            "homepage": "http://github.com/evansims/socialworth",
+            "keywords": [
+                "analytics",
+                "facebook",
+                "google plus",
+                "hackernews",
+                "linkedin",
+                "pinterest",
+                "popularity",
+                "reddit",
+                "social network",
+                "stumbleupon",
+                "twitter"
+            ],
+            "time": "2014-05-03 05:50:08"
         },
         {
             "name": "guzzle/guzzle",
@@ -1109,16 +1291,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.16",
+            "version": "v5.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e34dcc0c57e0f560248aec5128161256ff8bf4e1"
+                "reference": "415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e34dcc0c57e0f560248aec5128161256ff8bf4e1",
-                "reference": "e34dcc0c57e0f560248aec5128161256ff8bf4e1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0",
+                "reference": "415b5d824e15ee7cd18b8b23f96ae32b0b51d6a0",
                 "shasum": ""
             },
             "require": {
@@ -1233,7 +1415,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-09-04 12:46:14"
+            "time": "2015-09-16 16:57:12"
         },
         {
             "name": "laravelcollective/html",
@@ -1287,20 +1469,23 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.12",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086"
+                "reference": "202c7775d959f377e2e302d93e7127c47604438a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7323424a9d39c24e597ed3f2144419dfbb52e086",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/202c7775d959f377e2e302d93e7127c47604438a",
+                "reference": "202c7775d959f377e2e302d93e7127c47604438a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
@@ -1364,7 +1549,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-09-05 12:06:41"
+            "time": "2015-09-22 19:18:28"
         },
         {
             "name": "marc1706/fast-image-size",
@@ -1416,6 +1601,62 @@
                 "size"
             ],
             "time": "2015-08-21 11:40:30"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "v1.10.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0",
+                "symfony/var-dumper": "~2.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DebugBar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug"
+            ],
+            "time": "2015-02-05 07:51:20"
         },
         {
             "name": "monolog/monolog",
@@ -1586,16 +1827,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418"
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/196f177cfefa0f1f7166c0a05d8255889be12418",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
                 "shasum": ""
             },
             "require": {
@@ -1627,7 +1868,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-07-14 17:31:05"
+            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "psr/http-message",
@@ -3079,16 +3320,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "2d7c03c0e4e080901b8f33b2897b0577be18a13c"
+                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2d7c03c0e4e080901b8f33b2897b0577be18a13c",
-                "reference": "2d7c03c0e4e080901b8f33b2897b0577be18a13c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ef1ca6835468857944d5c3b48fa503d5554cff2f",
+                "reference": "ef1ca6835468857944d5c3b48fa503d5554cff2f",
                 "shasum": ""
             },
             "require": {
@@ -3137,7 +3378,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-04 03:42:39"
+            "time": "2015-09-14 06:51:16"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3270,16 +3511,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.6",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b"
+                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
-                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
+                "reference": "3144ae21711fb6cac0b1ab4cbe63b75ce3d4e8da",
                 "shasum": ""
             },
             "require": {
@@ -3315,20 +3556,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-08-16 08:51:00"
+            "time": "2015-09-15 10:49:45"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.6",
+            "version": "4.8.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357"
+                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2246830f4a1a551c67933e4171bf2126dc29d357",
-                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/73fad41adb5b7bc3a494bb930d90648df1d5e74b",
+                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b",
                 "shasum": ""
             },
             "require": {
@@ -3387,7 +3628,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-24 04:09:38"
+            "time": "2015-09-20 12:56:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3871,7 +4112,8 @@
     "stability-flags": {
         "dg/twitter-php": 20,
         "kasp3r/link-preview": 20,
-        "aboustayyef/image-extractor": 20
+        "aboustayyef/image-extractor": 20,
+        "aboustayyef/summarizer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

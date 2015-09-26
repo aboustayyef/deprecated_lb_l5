@@ -30,13 +30,13 @@ class PostDetailsGetter
 
 	public function getDetailsFromRss(){
 			$feed = new SimplePie(); // We'll process this feed with all of the default options.
-		    $feed->set_feed_url($this->source->url); // Set which feed to process.
+		    $feed->set_feed_url($this->source->rss_feed); // Set which feed to process.
 		    $feed->set_useragent('Lebanese Blogs/3.2 (+http://www.lebaneseblogs.com)');
 		    $feed->strip_htmltags(false);
 		    $feed->enable_cache(false);
+		    $feed->force_feed(true);
 		    $feed->init(); // Run SimplePie.
 		    $feed->handle_content_type(); // This makes sure that the content is sent to
-
 		    $getter = new RssDetailsGetter($this->url, $feed);
 			return $getter->getDetails();
 	}

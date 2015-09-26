@@ -17,7 +17,6 @@ class RssDetailsGetter
 	function getDetails(){
 
 		$collection = $this->feed->get_items(0,10);
-
 		foreach ($collection as $key => $link) {
 
 			$finalUrl = finalUrl($link->get_permalink());
