@@ -27,6 +27,12 @@ Route::get('show/{image}', function($image){
 	return '<img src ="' . asset('img/post_images') .'/'. $image . '"></img>';
 });
 
+Route::get('posts/{channel?}', [
+	'as'	=>		'posts',
+	'uses'	=>		'postsController@index'
+]);
+
+
 /*
 | --------------------------------------------------------------------------
 | Authentication Routes:

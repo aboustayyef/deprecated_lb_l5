@@ -7,3 +7,4 @@ Homestead.yaml
 resources/assets/bower/
 public/img/thumbs/originals
 public/img/post_images/
+__init__.py

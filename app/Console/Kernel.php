@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\PostsGetter::class,
         \App\Console\Commands\import_channels::class,
         \App\Console\Commands\import_sources::class,
+        \App\Console\Commands\ScoresUpdater::class,
     ];
 
     /**

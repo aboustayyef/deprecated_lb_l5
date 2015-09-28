@@ -36,5 +36,9 @@ class Channel extends Model {
 		return $this->where('parent_id', 0);
 	}
 
+	public static function exists($channel){
+		return Channel::where('shorthand', $channel)->get()->count() > 0 ;
+	}
+
 
 }

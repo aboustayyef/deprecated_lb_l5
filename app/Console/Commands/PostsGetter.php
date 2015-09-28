@@ -47,7 +47,8 @@ class PostsGetter extends Command
         // If a shorthand is given
 
         if ($this->argument('shorthand')) {
-            $this->getPostsFromSource($this->argument('shorthand'));            
+            $this->getPostsFromSource($this->argument('shorthand'));
+            return;          
         }
 
         // else
